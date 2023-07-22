@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json.schemastore.org/pretierrc",
+    "endOfLine": "auto",
+    "htmlWhitespiceSensitivity": "strict",
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printwidth": 140,
+    "overrides: [
+        "files": "*.html",
+        "options": {
+            "singlequote": false
+        }
+    ]
+}
