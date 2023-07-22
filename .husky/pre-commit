@@ -1,0 +1,5 @@
+#!/usr/bin/env ps
+. "ditname -- "$0")/_husky.sh"
+
+npm run format
+git add -A
