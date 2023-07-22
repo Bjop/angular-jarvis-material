@@ -3,5 +3,132 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "jarvis-theme": {
+      "projectType": "library",
+      "root": "projects/jarvis-theme",
+      "sourceRoot": "projects/jarvis-theme/src",
+      "prefix": "j",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/jarvis-theme/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/jarvis-theme/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/jarvis-theme/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/jarvis-theme/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "jarvis-theme-example": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/jarvis-theme-example",
+      "sourceRoot": "projects/jarvis-theme-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/jarvis-theme-example",
+            "index": "projects/jarvis-theme-example/src/index.html",
+            "main": "projects/jarvis-theme-example/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/jarvis-theme-example/tsconfig.app.json",
+            "assets": [
+              "projects/jarvis-theme-example/src/favicon.ico",
+              "projects/jarvis-theme-example/src/assets"
+            ],
+            "styles": [
+              "projects/jarvis-theme-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "jarvis-theme-example:build:production"
+            },
+            "development": {
+              "browserTarget": "jarvis-theme-example:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "jarvis-theme-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/jarvis-theme-example/tsconfig.spec.json",
+            "assets": [
+              "projects/jarvis-theme-example/src/favicon.ico",
+              "projects/jarvis-theme-example/src/assets"
+            ],
+            "styles": [
+              "projects/jarvis-theme-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }
