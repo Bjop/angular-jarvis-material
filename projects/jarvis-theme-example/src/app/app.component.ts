@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'jarvis-theme-example';
+
+  items = [{id:"a", val:"A"},{id:"b", val:"B"}]
 }

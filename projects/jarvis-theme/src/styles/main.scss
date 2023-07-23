@@ -1,0 +1,19 @@
+@import 'node_modules/primeflex/primeflex.css';
+
+$primary-color: #02ffff;
+$secondary-color: #01bbbb;
+
+.primary-text{
+    color: $primary-color;
+}
+
+.transparant-background{
+    background-color: transparent;
+}
+
+.border{
+    border-style: solid;
+    border-color: $primary-color;
+    border-radius: 15px;
+    //box-shadow: 0 0 10px #01bbbb;
+}
