@@ -1,11 +1,30 @@
-.border-unfolded{
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom: none;
+.dropdown-main{
+    cursor: pointer;
 }
 
-.option-group{
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-top: none;
+.hover :hover{
+    background-color: rgba(2, 255, 255, .1);
+}
+
+ul{
+    list-style: none;
+}
+
+.border-left{
+    border-left-color: #02ffff;
+    border-left-style: solid;
+}
+
+.border-bottom{
+    border-bottom-color: #02ffff;
+    border-bottom-style: solid;
+}
+
+.dropdown-options{
+    position: absolute;
+    width: 99%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    box-sizing: border-box;
 }

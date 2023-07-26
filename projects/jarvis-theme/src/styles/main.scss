@@ -12,8 +12,10 @@ $secondary-color: #01bbbb;
 }
 
 .border{
-    border-style: solid;
-    border-color: $primary-color;
-    border-radius: 15px;
-    //box-shadow: 0 0 10px #01bbbb;
+    border-left-style: solid;
+    border-left-color: $primary-color;
+}
+
+ul{
+    padding: 0;
 }
