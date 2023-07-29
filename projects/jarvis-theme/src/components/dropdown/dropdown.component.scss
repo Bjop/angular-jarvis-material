@@ -1,30 +1,48 @@
-.dropdown-main{
-    cursor: pointer;
+@import 'node_modules/primeflex/primeflex.css';
+
+$primary-color: rgb(2, 255, 255, .75);
+$secondary-color: rgb(1, 187, 187, 1);
+
+.primary-text{
+    color: $primary-color;
 }
 
-.hover :hover{
+.dropdown-main{
+    cursor: pointer;
+    position: relative;
+}
+
+.hover:hover{
     background-color: rgba(2, 255, 255, .1);
 }
 
 ul{
     list-style: none;
+    width: inherit;
+    margin: 0;
+}
+
+.border{
+    border-left-style: solid;
+    border-left-color: $primary-color;
+    border-bottom-color: $primary-color;
+    border-bottom-style: solid;
 }
 
 .border-left{
-    border-left-color: #02ffff;
     border-left-style: solid;
-}
-
-.border-bottom{
-    border-bottom-color: #02ffff;
-    border-bottom-style: solid;
+    border-left-color: $primary-color;
 }
 
 .dropdown-options{
     position: absolute;
-    width: 99%;
     margin: 0;
     padding: 0;
     background-color: black;
     box-sizing: border-box;
+    width: 100%;
+}
+
+ul{
+    padding: 0;
 }

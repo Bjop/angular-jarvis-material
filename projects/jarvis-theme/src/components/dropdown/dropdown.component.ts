@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {AsyncPipe, JsonPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {List} from "../list/list.component";
 import UtilService from "../utils/Util.service";
@@ -23,7 +23,7 @@ import {NG_VALUE_ACCESSOR} from "@angular/forms";
         JsonPipe,
         AsyncPipe
     ],
-    styleUrls: ['../../styles/main.scss', './dropdown.component.scss']
+    styleUrls: ['./dropdown.component.scss'],
 })
 export class Dropdown implements OnInit{
     @Input()
@@ -36,9 +36,6 @@ export class Dropdown implements OnInit{
     itemLabel: string | undefined
     @Output()
     selectedItem = new EventEmitter<any>();
-
-    readonly _defaultStyleClassUnfolded = 'border border-unfolded'
-    readonly _defaultStyleClassFolded = 'border'
 
     _selectedItem: any;
     _showOptions = false;

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, EventEmitter, Input, Output, ViewEncapsulation} from "@angular/core";
 import UtilService from "../utils/Util.service";
 
 @Component({
@@ -8,7 +8,11 @@ import UtilService from "../utils/Util.service";
     imports: [
 
     ],
-    styleUrls: ['../../styles/main.scss', './list.component.scss']
+    styleUrls: ['./list.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    host: {
+        class: 'j-dropdown'
+    }
 })
 export class List {
     @Input()
