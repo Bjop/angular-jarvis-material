@@ -1,20 +1,21 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from "@angular/core";
 import UtilService from "../utils/Util.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @Component({
     standalone: true,
     selector: 'j-list',
     templateUrl: './list.component.html',
     imports: [
-
+        BrowserAnimationsModule
     ],
     styleUrls: ['./list.component.scss'],
     encapsulation: ViewEncapsulation.None,
     host: {
         class: 'j-dropdown'
-    }
+    },
 })
-export class List {
+export class List{
     @Input()
     item: any;
     @Input()
