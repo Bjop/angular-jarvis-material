@@ -72,8 +72,6 @@ export class Dropdown implements OnChanges{
                 const rect = el.getBoundingClientRect();
                 const isVisible = rect.top >= overlayElement.offsetTop && rect.bottom <= overlayElement.offsetHeight + overlayElement.offsetTop;
 
-                console.log(isVisible)
-
                 if (isVisible) {
                     el.classList.remove('fade-out')
                     el.classList.add('fade-in');
