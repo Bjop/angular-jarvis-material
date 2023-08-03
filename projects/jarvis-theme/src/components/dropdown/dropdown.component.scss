@@ -1,7 +1,4 @@
-@import 'node_modules/primeflex/primeflex.css';
-
-$primary-color: rgb(2, 255, 255, .75);
-$secondary-color: rgb(1, 159, 159);
+@import "../../styles/main";
 
 .primary-text{
     color: $primary-color;

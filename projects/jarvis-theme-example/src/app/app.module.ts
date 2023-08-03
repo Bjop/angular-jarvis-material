@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Dropdown} from "../../../jarvis-theme/src";
+import {Button} from "../../../jarvis-theme/src";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import {Dropdown} from "../../../jarvis-theme/src";
   imports: [
     BrowserModule,
     AppRoutingModule,
-      Dropdown
+      Dropdown,
+      Button,
   ],
   providers: [],
   bootstrap: [AppComponent]
