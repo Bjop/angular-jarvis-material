@@ -11,6 +11,7 @@ import UtilService from "../utils/Util.service";
 import {ValueAccessor} from "../utils/ValueAccessor";
 import {NG_VALUE_ACCESSOR} from "@angular/forms";
 import genUniqueId from "../utils/Unique-id-generator.service";
+import {Button} from "../button/button.component";
 
 @Component({
     standalone: true,
@@ -29,6 +30,7 @@ import genUniqueId from "../utils/Unique-id-generator.service";
         NgForOf,
         JsonPipe,
         AsyncPipe,
+        Button,
     ],
     styleUrls: ['./dropdown.component.scss', '../../styles/scrollbar.scss'],
 })
@@ -40,7 +42,9 @@ export class Dropdown implements OnChanges{
     @Input()
     editable: boolean = false;
     @Input()
-    itemLabel: string | undefined
+    itemLabel: string | undefined;
+    @Input()
+    itemValue: string | undefined;
     @Input()
     scrollHeight: string = '200px';
     @Input()
