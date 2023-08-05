@@ -1,7 +1,7 @@
 <div #container class="dropdown-main">
     <div #body class="pl-1 border hover position-relative flex" (click)="onFocus()">
         <div class="w-full">
-            <p *ngIf="_selectedItem != undefined; else defaultMessage" class="m-0">{{label}}</p>
+            <p *ngIf="_selectedItem !== undefined && _selectedItem !== ''; else defaultMessage" class="m-0">{{label}}</p>
             <ng-template #defaultMessage class="m-0">
                 <p class="m-0">{{placeHolder}}</p>
             </ng-template>
@@ -10,7 +10,7 @@
     </div>
     <div #dropdown *ngIf="_showOptions" class="border-left dropdown-options overlay" [id]="_optionsId" [style.max-height]="scrollHeight || 'auto'" (scroll)="onScroll()">
         <ul class="m-0">
-            <j-list *ngFor="let item of items" [item]="item" [itemLabel]="itemLabel" [itemValue]="itemValue" (ontItemSelect)="onItemSelect($event)" [style]="{ height: scrollHeight }"/>
+            <j-list *ngFor="let item of items" [item]="item" [itemLabel]="itemLabel" (ontItemSelect)="onItemSelect($event)" [style]="{ height: scrollHeight }"/>
         </ul>
     </div>
 </div>

@@ -1,15 +1,14 @@
 import {
     Component,
     ElementRef,
-    EventEmitter,
+    EventEmitter, forwardRef,
     Input, OnChanges,
     Output,
 } from '@angular/core';
 import {AsyncPipe, JsonPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {List} from "../list/list.component";
 import UtilService from "../utils/Util.service";
-import {ValueAccessor} from "../utils/ValueAccessor";
-import {NG_VALUE_ACCESSOR} from "@angular/forms";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import genUniqueId from "../utils/Unique-id-generator.service";
 import {Button} from "../button/button.component";
 
@@ -19,7 +18,7 @@ import {Button} from "../button/button.component";
     templateUrl: './dropdown.component.html',
     providers: [{
        provide: NG_VALUE_ACCESSOR,
-       useClass: ValueAccessor,
+       useExisting: forwardRef(() => Dropdown),
        multi: true
     }],
     imports: [
@@ -34,7 +33,7 @@ import {Button} from "../button/button.component";
     ],
     styleUrls: ['./dropdown.component.scss', '../../styles/scrollbar.scss'],
 })
-export class Dropdown implements OnChanges{
+export class Dropdown implements OnChanges, ControlValueAccessor{
     @Input()
     placeHolder: string = 'Select an item';
     @Input()
@@ -49,12 +48,23 @@ export class Dropdown implements OnChanges{
     scrollHeight: string = '200px';
     @Input()
     fadeOnScroling: boolean = true;
+    @Input()
+    disabled = false;
     @Output()
     selectedItem = new EventEmitter<any>();
+    @Output()
+    change = new EventEmitter<any>();
+    @Output()
+    touch = new EventEmitter<void>();
 
-    _selectedItem: any;
+
+    _selectedItem: any | undefined = undefined;
     _showOptions = false;
     _optionsId = genUniqueId();
+
+    onChange = (val: any) => {this.change.emit(val)};
+    onTouched = () => {this.touch.emit()};
+    touched = false;
 
     get label(): string | null {
         return this.selectedItem ? this.getItemLabel(this._selectedItem) : null;
@@ -63,7 +73,26 @@ export class Dropdown implements OnChanges{
     constructor(private elementRef: ElementRef) {
     }
 
+    writeValue(value: any): void {
+        if(value === null)
+            value = undefined;
+        this._selectedItem = value;
+        this.selectedItem.emit(value);
+    }
+    registerOnChange(fn: any): void {
+        this.touched = true;
+        this.onChange = fn;
+    }
+    registerOnTouched(fn: any): void {
+        this.touched = true;
+        this.onTouched = fn;
+    }
+    setDisabledState?(isDisabled: boolean): void {
+        this.disabled = isDisabled;
+    }
+
     ngOnChanges() {
+        this.change.emit(this._selectedItem)
     }
 
     onScroll() {
@@ -88,13 +117,29 @@ export class Dropdown implements OnChanges{
     }
 
     onItemSelect($event: any){
+        const val = this.getItemValue($event);
+        if ($event !== this._selectedItem){
+            this.ngOnChanges()
+        }
         this._showOptions = false;
-        this._selectedItem = $event;
-        this.selectedItem.emit($event);
+        this.writeValue($event);
+        this.onChange(val);
+        this.registerOnTouched(val);
     }
 
-    getItemLabel(option: any): string{
-        return UtilService.getValueByProperty(this.itemLabel, option);
+    getItemLabel(item: any): any | undefined{
+        return this.getPropertyValue(this.itemLabel, item);
+    }
+
+    getItemValue(item: any): any{
+        if (this.itemValue){
+            return this.getPropertyValue(this.itemValue, item);
+        }
+        return item;
+    }
+
+    getPropertyValue(label: string | undefined, item: any): any{
+        return UtilService.getValueByProperty(label, item);
     }
 
     onFocus(){

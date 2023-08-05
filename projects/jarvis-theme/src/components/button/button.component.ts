@@ -32,6 +32,5 @@ export class Button implements AfterContentInit{
     ngAfterContentInit() {
         this.isContentEmpty = !this.buttonBody;
         this.isImageEmpty = !this.buttonImage;
-        console.log(this.isContentEmpty)
     }
 }

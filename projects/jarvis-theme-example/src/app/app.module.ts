@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Dropdown} from "../../../jarvis-theme/src";
 import {Button} from "../../../jarvis-theme/src";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -12,8 +13,10 @@ import {Button} from "../../../jarvis-theme/src";
   imports: [
     BrowserModule,
     AppRoutingModule,
-      Dropdown,
-      Button,
+    Dropdown,
+    Button,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
