@@ -1,5 +1,6 @@
 import {AfterContentInit, Component, ContentChild, ElementRef, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {style} from "@angular/animations";
 
 @Component({
   selector: 'j-button',
@@ -20,6 +21,8 @@ export class Button implements AfterContentInit{
     icon: string | undefined;
     @Input()
     iconPosition: string = 'left';
+    @Input()
+    styleClass: string = 'j-button-default'
     @Output()
     click = new EventEmitter();
 
@@ -33,4 +36,6 @@ export class Button implements AfterContentInit{
         this.isContentEmpty = !this.buttonBody;
         this.isImageEmpty = !this.buttonImage;
     }
+
+    protected readonly style = style;
 }

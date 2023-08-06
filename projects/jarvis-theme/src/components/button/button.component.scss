@@ -1,24 +1,79 @@
 @import "../../styles/main";
 
-.button-main{
-    color: $primary-color;
-    border: 2px solid $primary-color;
-    width: fit-content;
-    padding: 5px;
-    border-radius: .7rem;
-    cursor: pointer;
-    background: linear-gradient(0deg, $opaque 0%, $shadow-opaque-color 100%);
-}
-
-.button-main:active{
-    background: linear-gradient(0deg, $shadow-opaque-color 0%, $opaque 100%);
-}
-
-.button-text{
-    margin: 0;
-}
+$default-gradient: linear-gradient(0deg, $opaque 0%, $shadow-opaque-color 100%);
+$inverted-gradient: linear-gradient(0deg, $shadow-opaque-color 0%, $opaque 100%);
+$border-radius: .5rem;
+$border-width: 2px;
 
 .doAlign{
     display: flex;
     align-items: center;
+}
+
+.j-button-default{
+    color: $primary-color;
+    border: $border-width solid $primary-color;
+    width: fit-content;
+    padding: 5px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    background: $default-gradient;
+}
+
+.j-button-link{
+    color: $primary-color;
+    border: none;
+    width: fit-content;
+    padding: 5px;
+    cursor: pointer;
+    background: none;
+}
+.j-button-text{
+    color: $primary-color;
+    border: none;
+    width: fit-content;
+    padding: 5px;
+    cursor: pointer;
+    background: none;
+}
+
+
+.j-button-link:hover{
+    text-decoration: underline;
+}
+
+.j-button-primary{
+    color: white !important;
+    border: none !important;
+    width: fit-content;
+    padding: 5px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    background: $primary-color !important;
+}
+
+.j-button-primary:hover{
+background: $secondary-color;
+}
+
+.j-button-cornered{
+    color: $primary-color;
+    border: $border-width solid $primary-color;
+    width: fit-content;
+    padding: 5px;
+    cursor: pointer;
+    background: none;
+    border-radius: 0;
+}
+
+.j-button-bordered{
+    border: $border-width solid $primary-color !important;
+}
+
+.j-button-gradient:active{
+    background: $inverted-gradient;
+}
+
+.j-button-gradient{
+    background: $default-gradient;
 }

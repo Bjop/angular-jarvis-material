@@ -4,10 +4,82 @@
             <j-dropdown [items]="items" itemValue="val" formControlName="letter" itemLabel="id"/>
         </div>
         <div class="col-6">
-            <j-button label="button" icon="pi pi-angle-down" (click)="onSubmit()"/>
+            <j-button label="button" styleClass="j-button-gradient j-button-primary" icon="pi pi-angle-down" (click)="onSubmit()"/>
         </div>
     </form>
 </div>
 
-
-<p>tests</p>
+<div class="grid">
+    <div class="col-2">
+        <p>default</p>
+        <j-button label="button" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>default gradient</p>
+        <j-button label="button" styleClass="j-button-default j-button-gradient" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>primary</p>
+        <j-button label="button" styleClass="j-button-primary" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>cornered gradient</p>
+        <j-button label="button" styleClass="j-button-gradient j-button-cornered" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>primary cornered</p>
+        <j-button label="button" styleClass="j-button-primary j-button-cornered" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+</div>
+<div class="grid">
+    <div class="col-2">
+        <p>link</p>
+        <j-button label="button" styleClass="j-button-link" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link gradient rounded corners</p>
+        <j-button label="button" styleClass="j-button-link j-button-default j-button-gradient" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link gradient squared corners</p>
+        <j-button label="button" styleClass="j-button-link j-button-gradient" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link</p>
+        <j-button label="button" styleClass="j-button-text" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link gradient rounded corners</p>
+        <j-button label="button" styleClass="j-button-text j-button-default j-button-gradient" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link gradient squared corners</p>
+        <j-button label="button" styleClass="j-button-text j-button-gradient" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+</div>
+<div class="grid">
+    <div class="col-2">
+        <p>link</p>
+        <j-button label="button" styleClass="j-button-link j-button-bordered" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link gradient rounded corners</p>
+        <j-button label="button" styleClass="j-button-link j-button-default j-button-gradient  j-button-bordered" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link gradient squared corners</p>
+        <j-button label="button" styleClass="j-button-link j-button-gradient  j-button-bordered" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link</p>
+        <j-button label="button" styleClass="j-button-text  j-button-bordered" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link gradient rounded corners</p>
+        <j-button label="button" styleClass="j-button-text j-button-default j-button-gradient j-button-bordered" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+    <div class="col-2">
+        <p>link gradient squared corners</p>
+        <j-button label="button" styleClass="j-button-text j-button-gradient j-button-bordered" icon="pi pi-angle-down" (click)="onSubmit()"/>
+    </div>
+</div>

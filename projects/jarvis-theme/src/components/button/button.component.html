@@ -1,12 +1,12 @@
-<button #button (click)="onButtonClick()" class="button-main" [disabled]="disabled">
-    <div *ngIf="isContentEmpty" class="doAlign">
+<button #button (click)="onButtonClick()" [ngClass]="styleClass" [disabled]="disabled">
+    <div *ngIf="isContentEmpty" class="doAlign" >
         <div *ngIf="iconPosition === 'left'">
             <span *ngIf="isImageEmpty" [class]="icon" class="inline"></span>
             <div *ngIf="!isImageEmpty">
                 <ng-content select="buttonImage"/>
             </div>
         </div>
-        <p class="button-text inline">{{label}}</p>
+        <p class="inline m-0">{{label}}</p>
         <div *ngIf="iconPosition === 'right'">
             <span *ngIf="isImageEmpty" [class]="icon" class="inline"></span>
             <div *ngIf="!isImageEmpty">
