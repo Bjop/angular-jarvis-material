@@ -20,6 +20,7 @@ $border-width: 2px;
     background: $default-gradient;
 }
 
+
 .j-button-link{
     color: $primary-color;
     border: none;
@@ -70,8 +71,8 @@ background: $secondary-color;
     border: $border-width solid $primary-color !important;
 }
 
-.j-button-gradient:active{
-    background: $inverted-gradient;
+.j-button-gradient:active, .j-button-default:active{
+    background: $inverted-gradient !important;
 }
 
 .j-button-gradient{
