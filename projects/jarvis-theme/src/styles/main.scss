@@ -7,3 +7,8 @@ $shadow-color:rgb(0, 150, 150, .75);
 $primary-opaque-color: rgb(2, 255, 255, .5);
 $shadow-opaque-color:rgb(0, 150, 150, .5);
 $opaque:rgb(0, 0, 0, 0);
+
+$default-gradient: linear-gradient(0deg, $opaque 0%, $shadow-opaque-color 100%);
+$inverted-gradient: linear-gradient(0deg, $shadow-opaque-color 0%, $opaque 100%);
+$border-radius: .5rem;
+$border-width: 2px;
