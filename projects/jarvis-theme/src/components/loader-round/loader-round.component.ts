@@ -30,6 +30,8 @@ export class LoaderRound implements OnInit{
     center: boolean = false;
     @Input()
     label: string | undefined;
+    @Input()
+    borderStyle: string = 'solid';
 
     @Input()
     set ringCount(ringCount: number){
@@ -96,7 +98,8 @@ export class LoaderRound implements OnInit{
                 'speed': Math.floor(Math.random() * this.speedVariation + this.speedMin),
                 'isCenter': this.center && i===0,
                 'label': i===0 ? this.label : undefined,
-                'borderSize': this.ringWidth
+                'borderSize': this.ringWidth,
+                'borderStyle': this.borderStyle,
             })
         }
     }
