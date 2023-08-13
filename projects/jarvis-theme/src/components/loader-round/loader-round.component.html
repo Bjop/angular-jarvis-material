@@ -1,8 +1,4 @@
 <div class="spinner-main">
-    <span *ngIf="center" class="loader-layer-center"
-          [style.height.px]="centerSize"
-          [style.width.px]="centerSize"></span>
-
     <ng-container *ngFor="let ring of rings">
         <j-loader-ring
             [ring]="ring"

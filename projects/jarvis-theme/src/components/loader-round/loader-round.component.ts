@@ -21,9 +21,15 @@ export class LoaderRound implements OnInit{
     @Input()
     alternateDirection: boolean = true;
     @Input()
-    speedVariation: number = 2;
+    speedVariation: number = 2000; //in ms per rotation
+    @Input()
+    speedMin: number = 1500; // in ms per rotation
+    @Input()
+    randomSpeed: boolean = true;
     @Input()
     center: boolean = false;
+    @Input()
+    label: string | undefined;
 
     @Input()
     set ringCount(ringCount: number){
@@ -86,9 +92,12 @@ export class LoaderRound implements OnInit{
             size += (this._ringWidth + this._ringSpacing) *2;
             this.rings.push({
                 'size': size,
-                'state': i%2 === 0 ? 'start' : 'startCounter'
+                'state': i%2 === 0 ? 'start' : 'startCounter',
+                'speed': Math.floor(Math.random() * this.speedVariation + this.speedMin),
+                'isCenter': this.center && i===0,
+                'label': i===0 ? this.label : undefined,
+                'borderSize': this.ringWidth
             })
         }
-        console.log(this.rings)
     }
 }

@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import {animate, AnimationBuilder, AnimationPlayer, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'j-loader-ring',
@@ -19,31 +19,65 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ]),
   ]
 })
-export class LoaderRingComponent implements OnInit{
+export class LoaderRingComponent implements OnInit, AfterViewInit{
   @Input()
   ring: any;
 
-  ngOnInit() {
-    console.log(this.ring)
+  @ViewChild('ringElement')
+  elementRef: ElementRef | undefined;
+
+  ringElement: AnimationPlayer | undefined;
+  centerClass: string = '';
+
+
+  constructor(private readonly animationBuilder: AnimationBuilder) {
   }
 
-  onEnd($event: any) {
-    if (this.ring.state === 'end'){
-      this.ring.state = 'start';
-    }
-    if(this.ring.state === 'endCounter'){
-      this.ring.state = 'startCounter';
-    }
-    if ($event.toState === 'start') {
-      setTimeout(() => {
-        this.ring.state = 'end';
-      }, 0);
-    }
-    if ($event.toState === 'startCounter') {
-      setTimeout(() => {
-        this.ring.state = 'endCounter';
-      }, 0);
+  ngOnInit(): void {
+    this.centerClass = this.getCenterClass();
+  }
+  ngAfterViewInit(): void {
+    if(!this.ring.isCenter && this.ring.label == undefined ) {
+      if (this.ring.state === 'end') {
+        this.ring.state = 'start';
+      }
+      if (this.ring.state === 'endCounter') {
+        this.ring.state = 'startCounter';
+      }
+      if (this.elementRef) {
+        let animationFactory;
+        if (this.ring.state === 'start') {
+          animationFactory = this.animationBuilder
+              .build([
+                style({transform: 'rotate(0deg)'}),
+                animate(this.ring.speed + 'ms', style({transform: 'rotate(360deg)'}))
+              ]);
+        } else {
+          animationFactory = this.animationBuilder
+              .build([
+                style({transform: 'rotate(360deg)'}),
+                animate(this.ring.speed + 'ms', style({transform: 'rotate(0deg)'}))
+              ]);
+        }
+
+        this.ringElement = animationFactory.create(this.elementRef.nativeElement);
+        this.ringElement.play();
+        this.ringElement.onDone(() => {
+          this.ringElement?.reset();
+          this.ringElement?.play();
+        })
+      }
     }
   }
 
+  getCenterClass(): string{
+    if(this.ring.isCenter){
+      return 'loader-center-filled';
+    }
+
+    if (this.ring.label != undefined){
+      return 'loader-center-labeled'
+    }
+    return ''
+  }
 }

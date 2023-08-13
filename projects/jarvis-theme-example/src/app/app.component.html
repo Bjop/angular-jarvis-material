@@ -8,8 +8,23 @@
         </div>
     </form>
 </div>
-<div style="height: 100px; width: auto">
-    <j-loader-round style="height: 100%;"/>
+<div>
+<div class="grid">
+    <div class="col-6">
+        <j-loader-round [ringCount]="7"/>
+    </div>
+    <div class="col-6">
+        <j-loader-round [center]="true" [label]="'hahahahaha'" [ringWidth]="10"/>
+    </div>
+</div>
+<div class="grid">
+    <div class="col-6">
+        <j-loader-round [center]="false" [label]="'hahahahaha'" [ringSpacing]="20"/>
+    </div>
+
+    <div class="col-6">
+        <j-loader-round [center]="true" [speedMin]="5000" [speedVariation]="5000"/>
+    </div>
 </div>
 <div>
     <span>
@@ -17,6 +32,7 @@
         <input j-text-input type="text" placeholder="text input"/>
     </span>
 </div>
+
 
 <div class="grid">
     <div class="col-2">
@@ -91,4 +107,5 @@
         <p>link gradient squared corners</p>
         <j-button label="button" styleClass="j-button-text j-button-gradient j-button-bordered" icon="pi pi-trash" (click)="onSubmit()"/>
     </div>
+</div>
 </div>
