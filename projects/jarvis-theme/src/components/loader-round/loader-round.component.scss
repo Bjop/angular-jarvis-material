@@ -1,0 +1,24 @@
+@import "../../styles/main";
+
+.spinner-main{
+    position: absolute;
+    display: grid;
+    width: 100%;
+    height: auto;
+    border: none;
+    overflow: visible;
+    place-content: center;
+    align-content: center;
+}
+
+.loader-layer {
+    margin: auto;
+    grid-area:1/1;
+    line-height: 30px;
+    text-align: center;
+    border: 5px solid $primary-color;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
