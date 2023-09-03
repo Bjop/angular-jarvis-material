@@ -1,0 +1,27 @@
+@import "../../styles/main";
+
+.loader-layer {
+    border: 5px solid $primary-color;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+}
+
+.loader-center-filled {
+    color: black;
+    border-color: transparent;
+    background-color: $primary-color;
+    overflow: hidden;
+}
+
+.loader-center-labeled {
+    border: 5px solid transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    color: $primary-color;
+}
+
+:host {
+    display: grid;
+    grid-area:1/1;
+    margin: auto;
+}

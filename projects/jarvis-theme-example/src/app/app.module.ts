@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {Dropdown} from "../../../jarvis-theme/src";
+import {Dropdown, LoaderRound} from "../../../jarvis-theme/src";
 import {Button, TextInput} from "../../../jarvis-theme/src";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     TextInput,
     ReactiveFormsModule,
     FormsModule,
+    LoaderRound
   ],
   providers: [],
   bootstrap: [AppComponent]

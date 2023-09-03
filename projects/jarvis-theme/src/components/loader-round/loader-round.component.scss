@@ -1,0 +1,10 @@
+@import "../../styles/main";
+
+.spinner-main{
+    display: grid;
+    grid-area:1/1;
+    width: 100%;
+    height: auto;
+    border: none;
+    overflow: visible;
+}

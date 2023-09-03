@@ -1,0 +1,10 @@
+<div class="spinner-main">
+    <ng-container *ngFor="let ring of rings">
+        <j-loader-ring
+            [ring]="ring"
+                       [style.height.px]="ring?.size"
+                       [style.width.px]="ring?.size"
+        />
+    </ng-container>
+</div>
+
