@@ -1,0 +1,16 @@
+@import "../../styles/main";
+
+:host.hide-default{
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+:host.j-input-default{
+    color: $primary-color;
+    border: $border-width solid $primary-color;
+    width: fit-content;
+    padding: 5px;
+    border-radius: $border-radius;
+}

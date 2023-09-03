@@ -1,10 +1,5 @@
 @import "../../styles/main";
 
-$default-gradient: linear-gradient(0deg, $opaque 0%, $shadow-opaque-color 100%);
-$inverted-gradient: linear-gradient(0deg, $shadow-opaque-color 0%, $opaque 100%);
-$border-radius: .5rem;
-$border-width: 2px;
-
 .doAlign{
     display: flex;
     align-items: center;

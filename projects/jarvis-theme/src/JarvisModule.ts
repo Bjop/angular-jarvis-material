@@ -1,6 +1,7 @@
 import {NgModule} from "@angular/core";
 import {Dropdown} from "./components/dropdown/dropdown.component";
 import {Button} from "./components/button/button.component";
+import {TextInput} from "./components/inputtext/text-input.component";
 
 @NgModule({
   declarations: [
@@ -8,7 +9,8 @@ import {Button} from "./components/button/button.component";
   ],
   imports: [
       Dropdown,
-      Button
+      Button,
+      TextInput
   ],
   providers: [],
   bootstrap: []
